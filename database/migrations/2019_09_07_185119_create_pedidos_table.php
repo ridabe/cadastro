@@ -18,7 +18,7 @@ class CreatePedidosTable extends Migration
             $table->number('id_clients');
             $table->number('id_products');
             $table->number('quantidade');
-            $table->number('valor');
+            $table->float('valor',8,2)->default(0);
             $table->number('total');
             $table->timestamps();
         });

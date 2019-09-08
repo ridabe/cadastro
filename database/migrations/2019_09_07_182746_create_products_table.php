@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name',45);
             $table->string('barcode',13)->unique();
             $table->number('estoque');
-            $table->number('valor');
+            $table->float('valor',8,2)->default(0);
             $table->timestamps();
         });
     }

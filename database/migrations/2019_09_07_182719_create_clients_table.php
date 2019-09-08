@@ -18,8 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('name',45);
             $table->string('endereco',100);
             $table->string('cpf',11)->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email');
             $table->timestamps();
         });
     }
