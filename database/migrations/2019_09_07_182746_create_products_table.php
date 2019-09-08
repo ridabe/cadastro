@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',45);
             $table->string('barcode',13)->unique();
-            $table->number('estoque');
+            $table->float('quantidade',8,2)->default(0);
             $table->float('valor',8,2)->default(0);
             $table->timestamps();
         });

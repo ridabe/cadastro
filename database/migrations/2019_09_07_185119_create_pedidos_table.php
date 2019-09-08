@@ -15,11 +15,11 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->number('id_clients');
-            $table->number('id_products');
-            $table->number('quantidade');
+            $table->integer('id_clients');
+            $table->integer('id_products');
+            $table->float('quantidade',8,2)->default(0);
             $table->float('valor',8,2)->default(0);
-            $table->number('total');
+            $table->integer('total');
             $table->timestamps();
         });
     }
