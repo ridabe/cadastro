@@ -11,27 +11,15 @@
     </tr>
   </thead>
   <tbody>
+  @foreach($dados as $dado)
     <tr>
-      <td>1123123123</td>
-      <td>Otto</td>
-      <td>12345666</td>
-      <td>34</td>
+      <td>{{$dado['barcode']}}</td>
+      <td>{{$dado['name']}}</td>
+      <td>{{$dado['valor']}}</td>
+      <td>{{$dado['estoque']}}</td>
       <td><button type="button" class="btn btn-info">Deletar</button></td>
     </tr>
-    <tr>
-      <td>17893123123</td>
-            <td>Carne</td>
-            <td>12345666</td>
-            <td>34</td>
-      <td><button type="button" class="btn btn-info">Deletar</button></td>
-    </tr>
-    <tr>
-      <td>1123656123</td>
-            <td>Note</td>
-            <td>12345666</td>
-            <td>56</td>
-      <td><button type="button" class="btn btn-info">Deletar</button></td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
 

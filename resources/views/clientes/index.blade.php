@@ -12,28 +12,17 @@
     </tr>
   </thead>
   <tbody>
+  @foreach($dados as $dado)
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>12345666</td>
-      <td>@mdo</td>
+      <td>{{$dado['name']}}</td>
+      <td>{{$dado['email']}}</td>
+      <td>{{$dado['cpf']}}</td>
+      <td>{{$dado['endereco']}}</td>
       <td><button type="button" class="btn btn-info">Deletar</button></td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>12345666</td>
-      <td>@fat</td>
-      <td><button type="button" class="btn btn-info">Deletar</button></td>
-    </tr>
-    <tr>
-      <td>Larry the Bird</td>
-      <td>@twitter</td>
-      <td>12345666</td>
-      <td>@twitter</td>
-      <td><button type="button" class="btn btn-info">Deletar</button></td>
+   @endforeach
     </tr>
   </tbody>
 </table>
+<br>
 
 @endsection

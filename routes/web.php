@@ -16,8 +16,12 @@ Route::get('/', function () {
 });
 Route::group(['prefix'=>'clientes'],function(){
     Route::get('/',['uses'=>'ClienteController@lista','as'=>'clientes.index']);
+    Route::get('/cad_cli',['uses'=>'ClienteController@novo','as'=>'clientes.cad_cli']);
+    Route::post('/insert',['uses'=>'ClienteController@insert','as'=>'clientes.insert']);
 });
 
 Route::group(['prefix'=>'produtos'],function(){
     Route::get('/',['uses'=>'ProdutoController@lista','as'=>'produtos.lista_produtos']);
+    Route::get('/cad_prod',['uses'=>'ProdutoController@novo','as'=>'produtos.cad_prod']);
+    Route::post('/insert',['uses'=>'ProdutoController@insert','as'=>'produtos.insert']);
 });
