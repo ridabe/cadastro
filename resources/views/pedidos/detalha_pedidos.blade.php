@@ -2,7 +2,7 @@
 
 @section('conteudo')
 <div class="alert alert-danger" role="alert">
-  Pedido Nimero:
+  Pedido Numero:{{$dadosPedido->id_pedido}}  Cliente:{{$dadosCliente->name}}
 </div>
 <table class="table table-hover">
   <thead>
@@ -16,13 +16,13 @@
   </thead>
   <tbody>
 
-  @foreach($dadosJojn as $dadoJojn)
+  @foreach($dadosJoin as $dadoJoin)
     <tr>
-      <td>{{$dadoJojn['barcode']}}</td>
-      <td>{{$dadoJojn['name']}}</td>
-      <td>{{$dadoJojn['quantidade']}}</td>
-      <td>{{$dadoJojn['valor']}}</td>
-      <td>{{$dadoJojn['total']}}</td>
+      <td>{{$dadoJoin['barcode']}}</td>
+      <td>{{$dadoJoin['name']}}</td>
+      <td>{{$dadoJoin['quantidade']}}</td>
+      <td>{{$dadoJoin['valor']}}</td>
+      <td>{{$dadoJoin['total']}}</td>
     </tr>
     @endforeach
   </tbody>

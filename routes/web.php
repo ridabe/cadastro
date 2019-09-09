@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+    Route::get('/', 'ClienteController@home')->name('home');
 Route::group(['prefix'=>'clientes'],function(){
     Route::get('/',['uses'=>'ClienteController@lista','as'=>'clientes.index']);
     Route::get('/cad_cli',['uses'=>'ClienteController@novo','as'=>'clientes.cad_cli']);

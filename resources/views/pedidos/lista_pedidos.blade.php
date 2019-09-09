@@ -14,7 +14,7 @@
 
   @foreach($dadosJojn as $dadoJojn)
     <tr>
-      <td>{{$dadoJojn['id']}}</td>
+      <td>{{$dadoJojn['id_pedido']}}</td>
       <td>{{$dadoJojn['name']}}</td>
       <td>{{$dadoJojn['total']}}</td>
       <td><a href="{{route('pedidos.detalhar',$dadoJojn['id'])}}" type="button" class="btn btn-danger" id="delete">Detalhar</a></td>

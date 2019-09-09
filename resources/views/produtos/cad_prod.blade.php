@@ -14,6 +14,16 @@
        <input type="text" class="form-control" id="ean" name="barcode" value="">
      </div>
    </div>
+   <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Estoque</label>
+          <input type="text" class="form-control" id="estoque" name="estoque" value="">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Valor</label>
+          <input type="text" class="form-control" id="valor" name="valor" onKeyPress="return(MascaraMoeda(this,'.',event))" value="">
+        </div>
+      </div>
 
    <button type="submit" class="btn btn-primary">Salvar</button>
  </form>

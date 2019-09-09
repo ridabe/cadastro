@@ -8,6 +8,11 @@ use App\Client;
 
 class ClienteController extends Controller
 {
+    public function home()
+    {
+
+        return view('welcome');
+    }
     public function lista()
     {
         $dados = Client::all();

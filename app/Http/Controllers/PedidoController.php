@@ -27,14 +27,20 @@ class PedidoController extends Controller
 
     public function detalhar($id)
     {
+        $dadosCliente = Client::where([
+            ['Pedidos.id_pedido', '=', $id]])
+            ->join('Pedidos', 'Pedidos.id_clients', '=', 'Clients.id')->select('Clients.name')->first();
 
-        $dadosJojn = Client::where([
-            ['Pedidos.id', '>', $id]])
+        $dadosPedido = Pedido::where([
+            ['id_pedido', '=', $id]])->select('id_pedido')->first();
+
+        $dadosJoin = Client::where([
+            ['Pedidos.id_pedido', '=', $id]])
             ->join('Pedidos', 'Pedidos.id_clients', '=', 'Clients.id')
             ->join('Products', 'Pedidos.id_products', '=', 'Products.id')
             ->select('Pedidos.*','Clients.*','Products.*')
             ->get();
-        return view('pedidos.detalha_pedidos',compact('dadosJojn'));
+        return view('pedidos.detalha_pedidos',compact('dadosJoin','dadosCliente','dadosPedido'));
 
     }
 }
