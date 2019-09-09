@@ -27,4 +27,16 @@ class ClienteController extends Controller
         Client::create($dados->all());
         return redirect(route('clientes.cad_cli',compact('resposta')));
     }
+
+    public function destroy($id)
+    {
+
+        $pegarCliente =Client::find($id);
+        $pegarCliente->delete();
+        $dados = Client::all();
+
+        $resposta = ['Dados Apagados com sucesso!!!'];
+        return view('clientes.index')->with (compact('dados'));
+
+    }
 }

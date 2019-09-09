@@ -23,4 +23,16 @@ class ProdutoController extends Controller
         Product::create($dados->all());
         return redirect(route('produtos.cad_prod'));
     }
+
+    public function destroy($id)
+    {
+
+        $pegarCliente =Product::find($id);
+        $pegarCliente->delete();
+        $dados = Product::all();
+
+        $resposta = ['Dados Apagados com sucesso!!!'];
+        return view('produtos.lista_produtos')->with (compact('dados'));
+
+    }
 }

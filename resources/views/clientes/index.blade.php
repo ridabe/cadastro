@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('conteudo')
+<div class="alert alert-danger" role="alert">
+
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -18,8 +21,8 @@
       <td>{{$dado['email']}}</td>
       <td>{{$dado['cpf']}}</td>
       <td>{{$dado['endereco']}}</td>
-      <td><button type="button" class="btn btn-info">Deletar</button></td>
-   @endforeach
+      <td><a href="{{route('clientes.destroy',$dado['id'])}}" type="button" class="btn btn-danger" id="delete">Apagar Registo</a></td>
+                 @endforeach
     </tr>
   </tbody>
 </table>

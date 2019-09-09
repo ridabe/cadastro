@@ -33,7 +33,8 @@
     }
 
     //Mascara moeda
-    function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
+    function MascaraMoeda(objTextBox,  SeparadorDecimal, e){
+        var SeparadorMilesimo = '';
         var sep = 0;
         var key = '';
         var i = j = 0;
@@ -73,6 +74,29 @@
         }
         return false;
     }
+
+    //clonar campos
+    var selectProduto = document.getElementById('selectProdutos');
+    var divContainer = document.getElementById('divSelectContainer');
+    function adicionarProduto()
+    {
+    	// clona o primeiro select
+    	var newSelect = selectProduto.cloneNode(true);
+    	// adiciona o clone a div container
+    	divContainer.appendChild(newSelect);
+    }
+
+    function removerProduto()
+    {
+    	// se a quantidade de filhos for maior que um
+    	if(divContainer.children.length > 1)
+    	{
+    		var length = divContainer.children.length;
+    		var lastSelect = divContainer.children.length[length - 1];
+    		// pede para o pai do lastSelect (que é a divContainer) remover ele
+    		lastSelect.parentNode.removeChild(lastSelect);
+    	}
+    }
     </script>
   </head>
   <body>
@@ -98,7 +122,7 @@
               <a class="nav-link" href="{{ route('produtos.lista_produtos')}}">Listar Produtos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Fazer Pedidos</a>
+              <a class="nav-link" href="{{ route('pedidos.lista_pedidos')}}">Listar Pedidos</a>
             </li>
           </ul>
         </div>

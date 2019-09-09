@@ -17,7 +17,7 @@
       <td>{{$dado['name']}}</td>
       <td>{{$dado['valor']}}</td>
       <td>{{$dado['estoque']}}</td>
-      <td><button type="button" class="btn btn-info">Deletar</button></td>
+      <td><a href="{{route('produtos.destroy',$dado['id'])}}" type="button" class="btn btn-danger" id="delete">Apagar Registo</a></td>
     </tr>
     @endforeach
   </tbody>
