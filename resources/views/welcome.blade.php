@@ -90,6 +90,7 @@
                     <a href="{{ route('clientes.cad_cli')}}">Cadastrar Clientes</a>
                     <a href="{{ route('produtos.cad_prod')}}">Cadastrar Produtos</a>
                     <a href="{{ route('pedidos.lista_pedidos')}}">Listar Pedidos</a>
+                    <a href="{{ route('pedidos.cad_pedidos_view')}}">Cadastrar Pedidos</a>
                 </div>
             </div>
         </div>

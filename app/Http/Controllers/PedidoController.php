@@ -6,6 +6,7 @@ use App\Pedido;
 use Illuminate\Http\Request;
 use App\Client;
 use App\Product;
+use Symfony\Component\HttpFoundation\Response;
 
 class PedidoController extends Controller
 {
@@ -17,8 +18,16 @@ class PedidoController extends Controller
             ->get();
         return view('pedidos.lista_pedidos',compact('dadosJojn'));
     }
-    public function novo()
+    public function novo($ean)
     {
+        $dadosProduto = Product::where('barcode', '=', $ean)->select('name','valor')->get();
+        //dd($dadosProduto);
+        return \Response::Json($dadosProduto);
+    }
+
+    public function view()
+    {
+
         $dadosCliente = Client::all();
         $dadosProduto = Product::all();
         $resposta = '';

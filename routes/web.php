@@ -31,7 +31,8 @@ Route::group(['prefix'=>'produtos'],function(){
 
 Route::group(['prefix'=>'pedidos'],function(){
     Route::get('/',['uses'=>'PedidoController@lista','as'=>'pedidos.lista_pedidos']);
-    Route::get('/cad_pedidos',['uses'=>'PedidoController@novo','as'=>'pedidos.cad_pedidos']);
+    Route::get('/pesquisar/{ean}','PedidoController@novo');
+    Route::get('/cad_pedidos',['uses'=>'PedidoController@view','as'=>'pedidos.cad_pedidos_view']);
     Route::get('/detalhar/{id}',['uses'=>'PedidoController@detalhar','as'=>'pedidos.detalhar']);
 
 });

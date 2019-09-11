@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <title>Teste - Vaga</title>
 <script>
     function ValidaCPF(){
@@ -75,28 +75,55 @@
         return false;
     }
 
-    //clonar campos
-    var selectProduto = document.getElementById('selectProdutos');
-    var divContainer = document.getElementById('divSelectContainer');
-    function adicionarProduto()
-    {
-    	// clona o primeiro select
-    	var newSelect = selectProduto.cloneNode(true);
-    	// adiciona o clone a div container
-    	divContainer.appendChild(newSelect);
-    }
 
-    function removerProduto()
-    {
-    	// se a quantidade de filhos for maior que um
-    	if(divContainer.children.length > 1)
-    	{
-    		var length = divContainer.children.length;
-    		var lastSelect = divContainer.children.length[length - 1];
-    		// pede para o pai do lastSelect (que é a divContainer) remover ele
-    		lastSelect.parentNode.removeChild(lastSelect);
+function GetEan(){
+
+var ean = document.getElementById('ean').value;
+
+		//Início do Comando AJAX
+		 $.get('pesquisar/'+ ean, function(dadosProduto){
+		 $.each(dadosProduto,function(key,value){
+		  document.getElementById('descricao').value = value.name;
+		  document.getElementById('valor').value = value.valor;
+		 })
+
+
+
+         });
+	}
+
+	function ValorTotal(){
+
+    var valor = document.getElementById('valor').value;
+    var quantidade = document.getElementById('quantidade').value;
+
+    		  document.getElementById('total').value = valor *quantidade;
     	}
-    }
+
+    	var cadastro = {
+        		linha: 	'<div class="col-2"><input type="text" class="form-control" placeholder="Ean" id="ean" name[]="ean" onfocusout="GetEan()" value=""></div>'+
+        				'<div class="col-5"><input type="text" class="form-control" placeholder="Produto" id="descricao" name[]="descricao" value=""></div>'+
+        				'<div class="col"><input type="text" class="form-control" placeholder="Quantidade" id="quantidade" name[]="quantidade" onfocusout="ValorTotal()" value=""></div>'+
+        				'<div class="col"><input type="text" class="form-control" placeholder="Valor Unit" onKeyUp="MascaraMoeda(this,".",event)"id="valor" name[]="valor" value=""></div>'+
+        				'<div class="col"><input type="text" class="form-control" placeholder="Valor Total"id="total" name[]="total" value=""></div>'+
+        				'<input type="hidden" id="id_products" name[]="id_products" value="">',
+
+
+        		adicionarLinha: function(){
+        			//encontrar o elemento com id "tblCadastroTBody" (tbody)
+        			var tbody = document.getElementById('divSelectContainer');
+
+        			//criar um novo elemento do tipo TR
+        			var tr = document.createElement('div');
+        			tr.classList.add('form-row','box_pergunta');
+        			//colocar o conteúdo da linha no TR
+        			tr.innerHTML = cadastro.linha;
+
+        			//inserir a linha criada no tbody
+        			tbody.appendChild(tr);
+        		}
+        	}
+
     </script>
   </head>
   <body>
@@ -139,7 +166,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
